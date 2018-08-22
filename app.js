@@ -7,7 +7,7 @@ for (var i = 0; i < 100; i++) {
     run(i)
 };
 function run(i) {
-    var h3 = $(`<h3>Accusation ${i + 1}<div id=${i + 1}></div></h3>`);
+    var h3 = $(`<h3>Accusation ${i + 1}</h3>`);
     $(h3).appendTo(body);
     $(h3).click(function () {
         var f = friends[i % 5]
