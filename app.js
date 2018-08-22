@@ -1,17 +1,25 @@
 var body = document.body;
+var zalgoText = "a&#784;&#838;&#838;&#795;&#777;&#779;&#837;&#810;&#792;&#790;&#841;&#851;&#810;&#798;&#796;&#826; l&#771;&#862;&#830;&#865;&#855;&#835;&#807;&#816;&#839;&#808;&#853;&#840;&#854;&#837;&#822;a&#781;&#771;&#843;&#833;&#780;&#768;&#865;&#787;&#780;&#786;&#818;&#809;&#799;&#814;&#800;&#822;n&#862;&#862;&#773;&#834;&#777;&#769;&#829;&#783;&#777;&#813;&#825;&#804;&#837;&#853;&#807;&#804;&#823;d&#789;&#783;&#856;&#861;&#786;&#782;&#832;&#773;&#828;&#797;&#860;&#827;&#802;&#800;&#819;&#854; w&#859;&#773;&#786;&#778;&#769;&#799;&#815;&#827;&#811;&#804;&#823;i&#835;&#864;&#788;&#778;&#856;&#794;&#769;&#849;&#797;&#804;&#845;&#841;&#808;&#827;&#866;&#839;&#819;&#852;t&#768;&#771;&#785;&#782;&#786;&#859;&#849;&#788;&#794;&#778;&#839;&#807;&#853;&#800;&#815;&#825;&#854;h&#775;&#789;&#789;&#849;&#795;&#798;&#802;&#819;&#806;&#816;&#815;&#805;&#809;&#839;o&#773;&#831;&#829;&#772;&#772;&#784;&#771;&#857;&#803;&#790;&#792;&#866;&#801;&#837;&#811;&#857;&#800;&#820;u&#862;&#779;&#784;&#844;&#782;&#788;&#798;&#809;&#807;&#796;&#798;&#813;&#801;t&#772;&#861;&#849;&#838;&#849;&#780;&#843;&#782;&#774;&#786;&#798;&#854;&#854;&#808;&#840;&#854;&#798;&#798;&#800;&#851;&#820; o&#782;&#779;&#842;&#774;&#777;&#834;&#815;&#840;&#854;&#813;&#840;&#811;&#810;&#827;r&#770;&#835;&#795;&#781;&#848;&#848;&#776;&#786;&#859;&#846;&#800;&#818;&#809;&#866;&#812;&#813;&#817;&#822;d&#772;&#785;&#772;&#782;&#783;&#816;&#857;&#814;&#792;&#860;&#790;&#807;&#846;&#863;&#840;&#820;e&#773;&#795;&#832;&#832;&#776;&#831;&#813;&#805;&#819;&#827;&#827;&#857;&#803;&#808;&#806;r&#773;&#768;&#835;&#834;&#856;&#848;&#779;&#855;&#794;&#845;&#793;&#809;&#857;&#846;&#858;&#802;&#791;&#820;"
+var ZALGO = "Z&#772;&#861;&#776;&#862;&#832;&#771;&#856;&#777;&#830;&#773;&#792;&#853;&#839;&#805;&#826;&#809;A&#784;&#856;&#830;&#785;&#795;&#784;&#772;&#784;&#795;&#842;&#854;&#837;&#792;&#839;&#790;&#845;&#816;L&#788;&#834;&#843;&#774;&#849;&#855;&#795;&#783;&#780;&#771;&#808;&#828;&#803;&#811;&#793;&#863;&#801;&#857;&#797;&#821;G&#789;&#784;&#838;&#864;&#829;&#848;&#797;&#845;&#801;&#858;&#804;&#823;O&#861;&#773;&#856;&#835;&#795;&#782;&#808;&#811;&#800;&#846;&#828;&#805;&#791;"
 var friends = ["Richard", "Woody", "Warryn", "Anthony", "Juniper"];
-var locations = ["the Circus", "mlaeR rorriM ehT", "a Space Station", "the 3rd Circle of Hell", "The Plane of Shadow", "The Unspeakble Realm", "the Creepy Shack", "the Haunted Woods", "Cthulu's Hot Tub", "The Shadow Realm"];
-var weapons = ["a flimsy peice of cheese", "a children's card game", "broken glass", "love and affection", "the very concept of crocs", "neglect", "killer clowns from outerspace", "Dank Memes", "forbidden knowledge", "noitcelfeR reihT", "YouTube videos from the early 2000s", "an Adimantine Spork", "The Kraken", "Karen, that bitch", "Wonder Twin Powers", "Falling Rocks", "a Natural 20", "a flash mob", "the actual Mob", "a Natural 1"];
+var locations = ["the Circus", "mlaeR rorriM ehT", "a Space Station", "the 3rd Circle of Hell", "the Blessed Fields of Elysium", zalgoText, "the Creepy Shack", "the Haunted Woods", "Cthulu's Hot Tub", "The Shadow Realm"];
+var weapons = ["a flimsy peice of cheese", "a children's card game", "broken glass", "love and affection", "the very concept of crocs", "neglect", ZALGO, "Dank Memes", "forbidden knowledge", "noitcelfeR reihT", "YouTube videos from the early 2000s", "10d6 fire damage, DC24 reflex for half", "The Kraken", "Karen, that bitch", "Wonder Twin Powers", "Falling Rocks", "a Natural 20", "a flash mob", "the actual Mob", "a Natural 1"];
 
-for (let i = 0; i < 100; i++) {
-    var h3 = `<h3 id=${i+1}>Accusation ${i+1}</h3>`;
-    var f = friends[i % 5]
-    var w = weapons[i % 5]
-    var l = locations[i % 5]
+for (var i = 0; i < 100; i++) {
+    var h3 = `<h3>Accusation ${i+1}<div id=${i+1}></div></h3>`;
     $(h3).appendTo(body);
-    $(`#${i+1}`).click(function () {
-        $(`I accuse ${f}, in ${l} with ${w}!`).appendTo(h3)
+    $(h3).click(function () {
+        var f = friends[i % 5]
+        var w = weapons[i % 20]
+        var l = locations[i % 10]
+        $(`I accuse ${f}, in ${l} with ${w}!`).appendTo(`div#${i+1}`)
+        console.log(i)
+        console.log(f)
+        console.log(l)
+        console.log(w)
+        console.log("---")
     })
+    
 }
 
 // var friendArray = ["Marth", "Sheik", "Captain Falcon", "Fox", "Falco"];
