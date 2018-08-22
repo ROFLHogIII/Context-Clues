@@ -4,13 +4,13 @@ var locations = ["the Circus", "mlaeR rorriM ehT", "a Space Station", "the 3rd C
 var weapons = ["a flimsy peice of cheese", "a children's card game", "broken glass", "love and affection", "the very concept of crocs", "neglect", "killer clowns from outerspace", "Dank Memes", "forbidden knowledge", "noitcelfeR reihT", "YouTube videos from the early 2000s", "an Adimantine Spork", "The Kraken", "Karen, that bitch", "Wonder Twin Powers", "Falling Rocks", "a Natural 20", "a flash mob", "the actual Mob", "a Natural 1"];
 
 for (let i = 0; i < 100; i++) {
-    var h3 = "<h3 id=" + (i+1) + ">" + "Accusation " + (i+1) + "</h3>";
+    var h3 = `<h3 id=${i+1}>Accusation ${i+1}</h3>`;
     var f = friends[i % 5]
     var w = weapons[i % 5]
     var l = locations[i % 5]
     $(h3).appendTo(body);
-    $("#" + (i+1)).click(function () {
-        $("I accuse " + f + ", in " + l + " with " + w + "!").appendTo(h3)
+    $(`#${i+1}`).click(function () {
+        $(`I accuse ${f}, in ${l} with ${w}!`).appendTo(h3)
     })
 }
 
